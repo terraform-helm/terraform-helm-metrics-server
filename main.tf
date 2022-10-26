@@ -5,7 +5,7 @@ locals {
 
   set_values = concat(var.set_values, local.main_set_values)
 
-  helm_config = {
+  default_helm_config = {
     name             = var.name
     repository       = var.repository
     chart            = var.chart
@@ -14,6 +14,7 @@ locals {
     version          = var.release_version
     values           = var.values
   }
+  helm_config = merge(local.default_helm_config, var.helm_config)
 }
 
 module "helm" {
