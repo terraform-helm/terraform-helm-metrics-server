@@ -15,7 +15,7 @@ locals {
 }
 
 module "main_image" {
-  source     = "github.com/littlejo/terraform-helm-images-set-values"
+  source     = "github.com/littlejo/terraform-helm-images-set-values?ref=v0.1"
   repo_regex = var.repo_regex
   repo_url   = var.images.main
   pre_value  = "image"
