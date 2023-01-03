@@ -2,13 +2,12 @@ locals {
   set_values = concat(var.set_values, module.main_image.set_values)
 
   default_helm_config = {
-    name             = var.name
-    repository       = var.repository
-    chart            = var.chart
-    namespace        = var.namespace
-    create_namespace = var.create_namespace
-    version          = var.release_version
-    values           = var.values
+    name       = var.name
+    repository = var.repository
+    chart      = var.chart
+    namespace  = var.namespace
+    version    = var.release_version
+    values     = var.values
   }
 
   helm_config = merge(local.default_helm_config, var.helm_config)
